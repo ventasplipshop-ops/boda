@@ -76,7 +76,7 @@ section.visible {
 #hero .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(30,58,138,0.4);
+  background: rgba(25, 26, 29, 0.4);
 }
 #hero .hero-content {
   position: relative;
