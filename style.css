@@ -1,0 +1,268 @@
+/* --- RESET BÁSICO PARA CONSISTENCIA --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- BODY Y FUENTES --- */
+body {
+  background-color: #fff;
+  background-image: url('https://cdn.pixabay.com/photo/2017/08/30/12/49/texture-2699766_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Playfair Display", serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.85);
+  z-index: -1;
+}
+
+/* --- TIPOGRAFÍA --- */
+h1, h2, h3 {
+  font-family: "Dancing Script", cursive;
+  line-height: 1.2;
+}
+
+p {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+}
+
+/* --- SECCIONES --- */
+section {
+  opacity: 0;
+  transform: translateY(40px) rotateX(10deg);
+  transition: opacity 0.8s ease, transform 1s ease;
+  padding: 4rem 1.5rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+
+/* --- HERO --- */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+#hero .hero-background {
+  position: absolute;
+  inset: 0;
+}
+#hero .hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65);
+}
+#hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30,58,138,0.4);
+}
+#hero .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+#hero h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  margin-bottom: 1rem;
+}
+#hero p {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+/* --- ORNAMENTO --- */
+.ornament {
+  height: 40px;
+  margin: 2rem auto;
+  max-width: 600px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 100'%3E%3Cpath d='M50 50c20-20 40-20 60 0s40 20 60 0 40-20 60 0 40 20 60 0 40-20 60 0' stroke='%231e3a8a' stroke-width='2' fill='none'/%3E%3Ccircle cx='200' cy='50' r='8' fill='%231e3a8a'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: contain;
+}
+
+/* --- INVITACIÓN --- */
+#invitacion h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1.5rem;
+  color: #1e3a8a;
+}
+#invitacion .quote {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+#invitacion .fecha {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+#invitacion .lugar {
+  color: #1e3a8a;
+  font-weight: bold;
+}
+#invitacion iframe {
+  width: 100%;
+  max-width: 700px;
+  margin-top: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* --- DRESS CODE --- */
+#dresscode {
+  background: #f5f5dc;
+}
+#dresscode h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #1e3a8a;
+  margin-bottom: 2rem;
+}
+#dresscode .card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+#dresscode .permitidos {
+  font-weight: bold;
+  color: #1e3a8a;
+}
+#dresscode .nota {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* --- REGALO --- */
+#regalo h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #1e3a8a;
+  margin-bottom: 2rem;
+}
+#regalo .card {
+  background: #f5f5dc;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+#regalo .alias, 
+#regalo .cbu {
+  font-family: monospace;
+  margin-top: 1rem;
+  word-break: break-word;
+}
+
+/* --- FINAL --- */
+#final {
+  position: relative;
+  height: 60vh;
+  min-height: 300px;
+  overflow: hidden;
+}
+#final img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#final .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+#final h2 {
+  color: white;
+  font-size: clamp(2rem, 6vw, 4rem);
+  text-align: center;
+}
+
+/* --- EFECTOS --- */
+.text-outline {
+  text-shadow:
+    1px 1px 2px rgba(0,0,0,0.25),
+    -1px -1px 1px rgba(0,0,0,0.15);
+}
+/* Texto con degradado dorado + shine */
+
+
+
+/* Texto dorado con brillo interno */
+.shiny-text {
+  display: inline-block;
+  font-weight: bold;
+  background: linear-gradient(
+    90deg,
+    #FFD700 0%,
+    #DAA520 30%,
+    #FFF8DC 60%,
+    #FFD700 100%
+  );
+  background-size: 200% auto; /* para que el gradiente pueda moverse */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: shineText 4s linear infinite;
+}
+
+/* Animación que mueve el degradado dentro del texto */
+@keyframes shineText {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* Corazón más pequeño con mismo efecto */
+.shiny-icon {
+  width: 80px;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  background: linear-gradient(
+    90deg,
+    #FFD700 0%,
+    #DAA520 30%,
+    #FFF8DC 60%,
+    #FFD700 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineText 4s linear infinite;
+}
+
+
+/* Corazón sutil */
+.heart-icon {
+  width: 80px;  /* más pequeño */
+  margin: 0 auto 1.5rem auto;
+  display: block;
+}
+
+

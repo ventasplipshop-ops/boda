@@ -3,220 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agata Pavlov & Tomas Naveiro- Nuestra Boda</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          backgroundImage: {
-            'blue-gradient': 'linear-gradient(90deg, #2563eb, #1e40af, #93c5fd, #2563eb)',
-            'gold-gradient': 'linear-gradient(360deg, #FFD700, #DAA520,  #FFD700)',
-          },
-          fontFamily: {
-            'script': ['Dancing Script', 'cursive'],
-            'serif': ['Playfair Display', 'serif'],
-            'sans': ['Inter', 'sans-serif']
-          },
-          colors: {
-            'blue-dark': '#1e3a8a',
-            'blue-light': '#93c5fd',
-            'gold': '#B8860B',
-            'cream': '#F5F5DC',
-            'sage': '#9CAF88'
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body {
-      background-color: #ffffff; /* respaldo blanco */
-      background-image: url('https://cdn.pixabay.com/photo/2017/08/30/12/49/texture-2699766_1280.jpg');
-      background-size: cover;        /* que ocupe todo el fondo */
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;  /* que no se mueva al hacer scroll */
-      opacity: 1;
-    }
-
-    /* Para “atenuar” la textura detrás del contenido y pétalos */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: rgba(255,255,255, 0.85); /* capa semi-transparente blanca encima */
-      pointer-events: none;
-      z-index: 0;
-    }
-
-
-    .text-outline {
-      text-shadow: 
-        1px 1px 2px rgba(0,0,0,0.25),  /* sombra principal */
-        -1px -1px 1px rgba(0,0,0,0.15); /* sombra opuesta para relieve */
-    }
-    .ornament {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 100'%3E%3Cpath d='M50 50c20-20 40-20 60 0s40 20 60 0 40-20 60 0 40 20 60 0 40-20 60 0' stroke='%231e3a8a' stroke-width='2' fill='none'/%3E%3Ccircle cx='200' cy='50' r='8' fill='%231e3a8a'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-position: center;
-      background-size: contain;
-    }
-    .blue-text {
-      background: linear-gradient(90deg, #2563eb, #1e40af, #93c5fd, #2563eb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
-      font-weight: bold;
-    }
-  </style>
+  <title>Agata Pavlov & Tomas Naveiro - Nuestra Boda</title>
+  <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white">
+<body>
 
   <!-- Hero -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img src="https://images.pexels.com/photos/17834/pexels-photo.jpg" 
-           alt="Pareja feliz" 
-           class="w-full h-full object-cover mix-blend-overlay">
-      <div class="absolute inset-0 bg-blue-dark bg-opacity-25"></div>
+  <section id="hero">
+    <div class="hero-background">
+      <img src="https://images.pexels.com/photos/17834/pexels-photo.jpg" alt="Pareja feliz">
+      <div class="hero-overlay"></div>
     </div>
-    <div class="relative z-20 text-center text-white px-4">
-      <div class="mb-8">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150" class="w-24 h-24 mx-auto">
-                <defs>
-                    <!-- Degradado dorado metálico -->
-                    <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#FFD700"/>
-                    <stop offset="30%" stop-color="#DAA520"/>
-                    <stop offset="60%" stop-color="#FFF8DC"/>
-                    <stop offset="100%" stop-color="#FFD700"/>
-                    </linearGradient>
-                </defs>
+    <div class="hero-content">
+    <div class="hero-icon shiny-text">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150" class="shiny-icon">
+        <defs>
+          <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FFD700"/>
+            <stop offset="30%" stop-color="#DAA520"/>
+            <stop offset="60%" stop-color="#FFF8DC"/>
+            <stop offset="100%" stop-color="#FFD700"/>
+          </linearGradient>
+        </defs>
+        <!-- Corazón reducido -->
+        <path d="M60 20 C50 0 20 0 20 25 
+                C20 45 60 70 60 70 
+                C60 70 100 45 100 25 
+                C100 0 70 0 60 20Z"
+              fill="url(#gold-gradient)"/>
+        <!-- Anillos -->
+        <path d="M45 90 m-20,0 a20,20 0 1,0 40,0 a20,20 0 1,0 -40,0Z" 
+              fill="none" stroke="url(#gold-gradient)" stroke-width="4"/>
+        <path d="M75 90 m-20,0 a20,20 0 1,0 40,0 a20,20 0 1,0 -40,0Z" 
+              fill="none" stroke="url(#gold-gradient)" stroke-width="4"/>
+      </svg>
+    </div><p></p>
 
-                <!-- Corazón -->
-                <path d="M60 20 
-                        C50 0 20 0 20 25 
-                        C20 45 60 70 60 70 
-                        C60 70 100 45 100 25 
-                        C100 0 70 0 60 20Z"
-                        fill="url(#gold-gradient)"/>
-
-                <!-- Anillo izquierdo -->
-                <path d="M45 90
-                        m-20,0
-                        a20,20 0 1,0 40,0
-                        a20,20 0 1,0 -40,0Z"
-                        fill="none" stroke="url(#gold-gradient)" stroke-width="6"/>
-
-                <!-- Anillo derecho -->
-                <path d="M75 90
-                        m-20,0
-                        a20,20 0 1,0 40,0
-                        a20,20 0 1,0 -40,0Z"
-                        fill="none" stroke="url(#gold-gradient)" stroke-width="6"/>
-                </svg>
-      </div>
-      <h1 class="font-script text-xl md:text-8xl mb-4 text-transparent bg-gold-gradient  bg-clip-text text-outline"><p>Agata Pavlov</p><p>&</p><p>Tomas Naveiro</p></h1>
-      <p class="font-serif text-xl md:text-2xl mb-8">¡Nos casamos!</p>
+    <h1 class="shiny-text text-outline">
+      Agata Pavlov <br>&<br> Tomas Naveiro
+    </h1>
+      <p>¡Nos casamos!</p>
     </div>
   </section>
 
   <!-- Invitación -->
-  <section class="py-16 px-4 ">
-    <div class="max-w-2xl mx-auto text-center">
-      <div class="ornament h-16 w-full mb-8"></div>
-      <h2 class="font-script text-5xl text-blue-dark mb-8">Nuestra Boda</h2>
-      <p class="font-serif text-lg text-gray-700 mb-6">Tenemos el gusto de invitarte en este día tan importante de nuestras vidas.</p>
-      <p class="font-serif italic text-gray-600 mb-6">"No es solo una boda, es el comienzo de algo eterno. Queremos compartirlo con vos."</p>
-      <p class="font-serif text-xl font-semibold text-gray-800 mb-4">Domingo, 2 de Noviembre de 2025</p>
-      <p class="font-serif text-lg text-gray-700 mb-2">a las 12:45 hs</p>
-      <p class="font-serif text-lg text-gray-700">Lugar: <span class="text-blue-dark font-semibold">Janos Maschwitz</span></p>
-      <p> </p>
-      <p> </p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99462.34038266938!2d-58.83664646886323!3d-34.37538007006204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9fd91960f879%3A0x208c294fed0c72ca!2sJanos%20Maschwitz!5e0!3m2!1ses-419!2sar!4v1758828128794!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+  <section id="invitacion">
+    <div class="ornament"></div>
+    <h2>Nuestra Boda</h2>
+    <p>Tenemos el gusto de invitarte en este día tan importante de nuestras vidas.</p>
+    <p class="quote">"No es solo una boda, es el comienzo de algo eterno. Queremos compartirlo con vos."</p>
+    <p class="fecha">Domingo, 2 de Noviembre de 2025</p>
+    <p>12:45 hs</p>
+    <p>Lugar: <span class="lugar">Janos Maschwitz</span></p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99462.34038266938!2d-58.83664646886323!3d-34.37538007006204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc9fd91960f879%3A0x208c294fed0c72ca!2sJanos%20Maschwitz!5e0!3m2!1ses-419!2sar!4v1758828128794!5m2!1ses-419!2sar" 
+      width="600" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
   <!-- Dress Code -->
-  <section class="py-16 px-4 bg-cream">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="font-script text-5xl text-blue-dark mb-8">Dress Code</h2>
-      <div class="bg-white p-8 rounded-lg shadow-lg">
-        <h3 class="font-serif text-2xl font-semibold mb-6 text-gray-800">Formal</h3>
-        <p class="text-gray-700 mb-2">Colores permitidos:</p>
-        <p class="text-blue-dark font-medium">blanco, rojo, lila, beige, champagne, rosa, amarillo, celeste y demás tonos pastel.</p>
-        <p class="text-gray-700 mt-4">Son exclusividad de la novia.</p>
-      </div>
+  <section id="dresscode">
+    <h2>Dress Code</h2>
+    <div class="card">
+      <h3>Formal</h3>
+      <p>Colores permitidos:</p>
+      <p class="permitidos">blanco, rojo, lila, beige, champagne, rosa, amarillo, celeste y demás tonos pastel.</p>
+      <p class="nota">Son exclusividad de la novia.</p>
     </div>
   </section>
 
   <!-- Regalo -->
-  <section class="py-16 px-4 bg-white">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="font-script text-5xl text-blue-dark mb-8">Regalo</h2>
-      <div class="bg-cream p-8 rounded-lg shadow-lg">
-        <p class="font-serif text-lg text-gray-700 leading-relaxed mb-6">
-          Lo más importante para nosotros es que puedas acompañarnos en esta noche especial.
-        </p>
-        <p class="text-gray-700 mb-2">En caso que desees hacernos un regalo de bodas:</p>
-        <p class="font-mono text-gray-800">ALIAS: __________________</p>
-        <p class="font-mono text-gray-800">CBU: __________________</p>
-      </div>
+  <section id="regalo">
+    <h2>Regalo</h2>
+    <div class="card">
+      <p>Lo más importante para nosotros es que puedas acompañarnos en esta noche especial.</p>
+      <p>En caso que desees hacernos un regalo de bodas:</p>
+      <p class="alias">ALIAS: __________________</p>
+      <p class="cbu">CBU: __________________</p>
     </div>
   </section>
 
-  <!-- Final Image Section -->
-    <section class="relative h-96 overflow-hidden">
-        <img src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-             alt="Pareja romántica" 
-             class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-            <h2 class="font-script text-5xl md:text-7xl text-white text-center">zzzzz</h2>
-        </div>
-    </section>
+  <!-- Final -->
+  <section id="final">
+    <img src="https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Pareja romántica">
+    <div class="overlay">
+      <h2>¡Te esperamos!</h2>
+    </div>
+  </section>
 
-        <script>
-        // Smooth scrolling for buttons (if needed)
-        document.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Add click animation
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 150);
-            });
-        });
+  <script>
+    // Animación al hacer scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {threshold: 0.1});
 
-        // Add scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-
-        // First section should be visible immediately
-        document.querySelector('section').style.opacity = '1';
-        document.querySelector('section').style.transform = 'translateY(0)';
-    </script>
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 
 </body>
 </html>
