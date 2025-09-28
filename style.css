@@ -168,10 +168,12 @@ section.visible {
 
 /* --- REGALO --- */
 #regalo h2 {
-  font-size: clamp(3rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   color: #1e3a8a;
   margin-bottom: 2rem;
+  text-align: center;
 }
+
 #regalo .card {
   background: #e2d0e2;
   padding: 2rem;
@@ -180,6 +182,7 @@ section.visible {
   margin: 0 auto;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
+
 #regalo .alias, 
 #regalo .cbu {
   font-family: monospace;
@@ -214,7 +217,77 @@ section.visible {
 }
 
 #regalo .tabla strong {
-  color: #b8860b; /* dorado elegante */
+  color: #1e3a8a; /* dorado elegante */
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 640px) {
+  #regalo .tabla, 
+  #regalo .tabla tr, 
+  #regalo .tabla td {
+    display: block;
+    width: 100%;
+  }
+
+  #regalo .tabla td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 12px;
+  }
+
+  #regalo .tabla td:last-child {
+    border-bottom: none;
+  }
+
+  #regalo h2 {
+    font-size: 2rem;
+  }
+}
+
+.copy-btn {
+  background: transparent;       /* Fondo transparente */
+  border: none;                  /* Sin bordes */
+  cursor: pointer;
+  padding: 0;                    /* Sin padding extra */
+  margin-left: 6px;              /* Separación mínima del texto */
+  display: inline-flex;          /* Se ajusta al contenido */
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.copy-btn svg {
+  width: 16px;                   /* Ícono pequeño */
+  height: 16px;
+  stroke: #555;                  /* Color gris discreto */
+  transition: stroke 0.2s ease;
+}
+
+.copy-btn:hover svg {
+  stroke: #000;                  /* Se oscurece al pasar el mouse */
+}
+.copied-msg {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #16a34a;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.copied-msg.show {
+  opacity: 1;
+}
+.copy-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;        /* separación entre texto y botón */
+  margin: 4px 0;
+}
+
+.copy-row p {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 

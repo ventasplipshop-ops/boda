@@ -66,7 +66,7 @@
     <div class="card">
       <h3 >Formal</h3>
       
-      <p class="permitidos">Blanco, Rojo, Lila, Beige, Champagne, Rosa, Amarillo, Celeste y demás tonos pastel.</p>
+      <p class="permitidos">Blanco, Plateado, Rojo, Lila, Beige, Champagne, Rosa, Amarillo, Celeste y todos los tonos pasteles/claritos</p>
       <p class="nota">Son exclusividad de la novia.</p>
     </div>
   </section>
@@ -79,17 +79,57 @@
       <p></p>
 
       <table class="tabla">
-        <tr>
-          <td><p>Caja de ahorro en USD</p>
-            <p class="alias">ALIAS: queso.trato.foca</p>
-            <p class="cbu">CBU: 3840200500000043529522</p>
-          </td>
-          <td><p>Caja de ahorro en Pesos</p>
-            <p class="alias">ALIAS: agataytomas.pesos</p>
-            <p class="cbu">CBU: 3840200500000032154179</p>
-          </td>
-        </tr>
-      </table>
+  <tr>
+    <td>
+      <p><strong>Caja de ahorro en USD</strong></p>
+
+      <div class="copy-row">
+        <p class="alias">ALIAS: <span id="alias-usd">queso.trato.foca</span></p>
+        <button class="copy-btn" data-target="alias-usd">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <rect x="9" y="9" width="10" height="13" rx="2" stroke-width="1.5"></rect>
+            <rect x="5" y="3" width="10" height="13" rx="2" stroke-width="1.5"></rect>
+          </svg>
+        </button>
+      </div>
+
+      <div class="copy-row">
+        <p class="cbu">CBU: <span id="cbu-usd">3840200500000043529522</span></p>
+        <button class="copy-btn" data-target="cbu-usd">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <rect x="9" y="9" width="10" height="13" rx="2" stroke-width="1.5"></rect>
+            <rect x="5" y="3" width="10" height="13" rx="2" stroke-width="1.5"></rect>
+          </svg>
+        </button>
+      </div>
+    </td>
+
+    <td>
+      <p><strong>Caja de ahorro en Pesos</strong></p>
+
+      <div class="copy-row">
+        <p class="alias">ALIAS: <span id="alias-ars">agataytomas.pesos</span></p>
+        <button class="copy-btn" data-target="alias-ars">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <rect x="9" y="9" width="10" height="13" rx="2" stroke-width="1.5"></rect>
+            <rect x="5" y="3" width="10" height="13" rx="2" stroke-width="1.5"></rect>
+          </svg>
+        </button>
+      </div>
+
+      <div class="copy-row">
+        <p class="cbu">CBU: <span id="cbu-ars">3840200500000032154179</span></p>
+        <button class="copy-btn" data-target="cbu-ars">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <rect x="9" y="9" width="10" height="13" rx="2" stroke-width="1.5"></rect>
+            <rect x="5" y="3" width="10" height="13" rx="2" stroke-width="1.5"></rect>
+          </svg>
+        </button>
+      </div>
+    </td>
+  </tr>
+</table>
+
       
       
     </div>
@@ -114,6 +154,52 @@
       <h2>¡Te esperamos!</h2>
     </div>    
   </section>
+
+  <script>
+    async function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      } else {
+        // fallback
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
+    }
+
+    document.addEventListener("click", async (e) => {
+      const btn = e.target.closest(".copy-btn");
+      if (!btn) return;
+
+      const targetId = btn.dataset.target;
+      const el = document.getElementById(targetId);
+      if (!el) return;
+
+      try {
+        await copyText(el.textContent.trim());
+
+        // Tooltip rápido "copiado"
+        let tooltip = document.createElement("span");
+        tooltip.textContent = "¡Copiado!";
+        tooltip.style.marginLeft = "6px";
+        tooltip.style.fontSize = "0.8rem";
+        tooltip.style.color = "#16a34a";
+        tooltip.style.fontWeight = "600";
+
+        btn.parentElement.appendChild(tooltip);
+
+        setTimeout(() => tooltip.remove(), 1200);
+      } catch (err) {
+        alert("No se pudo copiar, hacelo manualmente.");
+      }
+    });
+  </script>
 
   <script>
     // Animación al hacer scroll
